@@ -195,6 +195,16 @@ class TreeViewController extends ChangeNotifier {
     }
     notifyListeners();
   }
+  
+  void unSelectAllChild(dynamic item) {
+    assert(item != null, 'Item should not be null');
+    NodeData sItem = item;
+    sItem.isSelected = false;
+    if (sItem.children.length > 0) {
+      _selectAllChild(sItem);
+    }
+    notifyListeners();
+  }
 
   ///Gets the number of visible children of the ListTreeView
   int numberOfVisibleChild() {
